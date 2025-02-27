@@ -60,4 +60,8 @@ Local only (as of now)
 ## Project board
 [Project's board](https://github.com/users/RomainChamb/projects/4/views/1)
 
+## Start the application
+
+Before starting the application, you have to run the runPostgresqlDockerForDev.sh script which will start the dockerize DB.
+
 
