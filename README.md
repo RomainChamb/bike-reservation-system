@@ -28,6 +28,7 @@ The admin can remove a bike from the stock.
 
 ## External systems
 System clock
+PostgreSQL
 
 ## Architecture Style
 Monolith (no front as of now)
@@ -56,12 +57,10 @@ Trunk Based Development
 
 ## Deployment Model
 Local only (as of now)
+Before starting the application, you have to run the runPostgresqlDockerForDev.sh script which will start the dockerize DB.
 
 ## Project board
 [Project's board](https://github.com/users/RomainChamb/projects/4/views/1)
 
-## Start the application
-
-Before starting the application, you have to run the runPostgresqlDockerForDev.sh script which will start the dockerize DB.
 
 

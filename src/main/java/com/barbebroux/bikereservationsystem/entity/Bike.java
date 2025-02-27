@@ -13,6 +13,7 @@ import java.util.UUID;
 public class Bike {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
 
     private String name;
@@ -24,11 +25,4 @@ public class Bike {
     private String size;
 
     private LocalDateTime nextAvailabilityDate;
-
-    @PrePersist
-    public void generateUUID() {
-        if(id == null) {
-            id = UUID.randomUUID();
-        }
-    }
 }
