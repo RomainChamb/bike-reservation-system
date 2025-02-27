@@ -44,4 +44,7 @@ Trunk Based Development
 ## Deployment Model
 Local only (as of now)
 
+## Project board
+[Project's board](https://github.com/users/RomainChamb/projects/4/views/1)
+
 
