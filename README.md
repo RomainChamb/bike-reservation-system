@@ -18,7 +18,7 @@ from [Optivem Journal](https://journal.optivem.com/) and [Valentina Jemuović](h
 A rider can book a bike for a given date and duration. He can choose the type of bike during the booking process.
 
 ### Changing bike
-A rider can change the type of bike he books before the start of his rental period.
+A rider can change the type of bike he booked before the start of his rental period.
 
 ### Adding a bike
 The admin can add a bike to the stock.
@@ -30,7 +30,20 @@ The admin can remove a bike from the stock.
 System clock
 
 ## Architecture Style
-Monolith
+Monolith (no front as of now)
+
+## Architecture diagram
+```mermaid
+graph LR
+    subgraph "Spring Boot Service"
+        REST_API --> D[Booking Controller]
+        E[DTOs] --> D
+        D --> F[Booking Service]
+        G[Models] --> F
+        F --> H[Repository]
+        H --> I[(PostgreSQL Database)]
+    end
+```
 
 ## Tech stack
 Java / Spring boot / Gradle / PostgreSQL
