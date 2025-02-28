@@ -41,7 +41,7 @@ public class RiderController {
     }
 
 
-    public record BookRequest(UUID bikeId, LocalDateTime rentalDate, LocalDateTime endOfRentalDate) {}
+    public record BookRequest(UUID bikeId, LocalDateTime rentalDate, LocalDateTime endOfRentalDate, String zipCode) {}
 
     public record ChangeBikeRequest(UUID currentBikeID, UUID newBikeID, LocalDateTime rentalDate, LocalDateTime endOfRentalDate) {}
 

@@ -8,6 +8,8 @@ import com.barbebroux.bikereservationsystem.repository.BikeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -17,6 +19,9 @@ public class BikeService {
 
     @Autowired
     BikeRepository bikeRepository;
+
+    @Autowired
+    CityAPI cityAPI;
 
 
     public void createBike(BikeDTO bikeDTO) {
@@ -43,6 +48,7 @@ public class BikeService {
             if("AVAILABLE".equals(bike.getStatus()) && bike.getNextAvailabilityDate().isBefore(LocalDateTime.now())) {
                 bike.setStatus("BOOKED");
                 bike.setNextAvailabilityDate(bookDTO.getEndOfRentalDate());
+                bike.setCity(cityAPI.getCityByZipCode(bookDTO.getZipCode()));
                 bikeRepository.saveAndFlush(bike);
             }
         });
@@ -55,12 +61,18 @@ public class BikeService {
             if("AVAILABLE".equals(newBike.getStatus()) && newBike.getNextAvailabilityDate().isBefore(LocalDateTime.now())) {
                 newBike.setStatus("BOOKED");
                 newBike.setNextAvailabilityDate(changeBikeDTO.getEndOfRentalDate());
+                newBike.setCity(currentBike.getCity());
                 bikeRepository.saveAndFlush(newBike);
                 currentBike.setStatus("AVAILABLE");
                 currentBike.setNextAvailabilityDate(LocalDateTime.now());
+                currentBike.setCity(null);
                 bikeRepository.saveAndFlush(currentBike);
             }
         }
 
+    }
+
+    public Bike getBikeById(UUID bikeId) {
+        return bikeRepository.findById(bikeId).orElse(null);
     }
 }

@@ -13,7 +13,7 @@ import java.util.UUID;
 public class Bike {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     private String name;
@@ -25,4 +25,6 @@ public class Bike {
     private String size;
 
     private LocalDateTime nextAvailabilityDate;
+
+    private String city;
 }

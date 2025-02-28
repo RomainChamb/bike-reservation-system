@@ -29,21 +29,27 @@ The admin can remove a bike from the stock.
 ## External systems
 System clock
 PostgreSQL
+Public API for zip code (http://api.zippopotam.us)
 
 ## Architecture Style
-Monolith (no front as of now)
+Monolith with templated frontnend
 
 ## Architecture diagram
 ```mermaid
 graph LR
+    subgraph "External system" 
+        K[Zip Code API]
+    end
     subgraph "Spring Boot Service"
         REST_API --> D[Booking Controller]
         E[DTOs] --> D
         D --> F[Booking Service]
+        J[System Clock] --> F
         G[Models] --> F
         F --> H[Repository]
         H --> I[(PostgreSQL Database)]
     end
+    K --> F
 ```
 
 ## Tech stack
@@ -57,7 +63,12 @@ Trunk Based Development
 
 ## Deployment Model
 Local only (as of now)
-Before starting the application, you have to run the runPostgresqlDockerForDev.sh script which will start the dockerize DB.
+
+## Manually deploy the system
+[Deployment procedure](./documentation/DEPLOYMENT)
+
+## Manually test the system
+[Test procedure](./documentation/TEST_PROCEDURE.md)
 
 ## Project board
 [Project's board](https://github.com/users/RomainChamb/projects/4/views/1)

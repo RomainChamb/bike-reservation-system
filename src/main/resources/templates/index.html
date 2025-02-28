@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Available Bikes</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+<h1>Available Bikes</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Bike Name</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Size</th>
+        <th>Next Availability</th>
+        <th>City</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bike : ${bikes}">
+        <td th:text="${bike.name}"></td>
+        <td th:text="${bike.type}"></td>
+        <td th:text="${bike.status}"></td>
+        <td th:text="${bike.size}"></td>
+        <td th:text="${#temporals.format(bike.nextAvailabilityDate, 'yyyy-MM-dd HH:mm')}"></td>
+        <td th:text="${bike.city}"></td>
+        <td><a th:href="@{/booking(id=${bike.id})}">Book</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

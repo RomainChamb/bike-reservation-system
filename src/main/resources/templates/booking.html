@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Bike</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+<h1>Booking for <span th:text="${bike.name}"></span></h1>
+
+<form action="/book" method="post">
+    <input type="hidden" name="bikeId" th:value="${bike.id}"/>
+
+    <div>
+        <label for="rentalDate">Start of rental Date:</label>
+        <input type="datetime-local" id="rentalDate" name="rentalDate" required/>
+    </div>
+
+    <div>
+        <label for="endOfRentalDate">End of rental Date:</label>
+        <input type="datetime-local" id="endOfRentalDate" name="endOfRentalDate" required/>
+    </div>
+
+    <div>
+        <label for="zipCode">French zip code:</label>
+        <input type="text" id="zipCode" name="zipCode" required/>
+    </div>
+
+    <div>
+        <button type="submit">Book Bike</button>
+    </div>
+</form>
+
+<a href="/">Back to Available Bikes</a>
+</body>
+</html>
