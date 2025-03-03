@@ -37,24 +37,28 @@ Monolith with templated frontnend
 ## Architecture diagram
 ```mermaid
 graph LR
-    subgraph "External system" 
-        K[Zip Code API]
+    A[USER] --> B[SYSTEM] --> C[ZIP CODE API]
+```
+```mermaid
+graph TD
+    subgraph USER
+        H[USER]
     end
-    subgraph "USER"
-        M[USER]
+    subgraph Exrternal System
+        I[ZIP Code API]
     end
-    subgraph "Spring Boot Service"
-        REST_API --> D[Booking Controller]
-        L[TEMPLATED_UI] --> D
-        E[DTOs] --> D
-        D --> F[Booking Service]
-        J[System Clock] --> F
-        G[Models] --> F
-        F --> H[Repository]
-        H --> I[(PostgreSQL Database)]
+    subgraph Spring boot Service
+        A[Templated UI] --> B[Bookin Controller]
+        C[REST API] --> B
+        B --> DTOs
+        B --> D[Booking Service]
+        D --> E["System Clock"]
+        D --> Models
+        D --> F[Repository]
+        F --> G[(PostgreSQL Database)]
     end
-    K --> F
-    M --> L
+    H --> A
+    D --> I
 ```
 
 ## Tech stack
