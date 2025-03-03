@@ -40,8 +40,12 @@ graph LR
     subgraph "External system" 
         K[Zip Code API]
     end
+    subgraph "USER"
+        M[USER]
+    end
     subgraph "Spring Boot Service"
         REST_API --> D[Booking Controller]
+        L[TEMPLATED_UI] --> D
         E[DTOs] --> D
         D --> F[Booking Service]
         J[System Clock] --> F
@@ -50,6 +54,7 @@ graph LR
         H --> I[(PostgreSQL Database)]
     end
     K --> F
+    M --> L
 ```
 
 ## Tech stack
