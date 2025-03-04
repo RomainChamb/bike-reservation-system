@@ -82,5 +82,11 @@ Local only (as of now)
 ## Project board
 [Project's board](https://github.com/users/RomainChamb/projects/4/views/1)
 
+## Pipeline Tool
+Github Action
+
+## Docker Registry
+Docker Hub
+
 
 
