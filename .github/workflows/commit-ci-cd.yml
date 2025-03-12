@@ -18,6 +18,6 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      #- name: Build docker image
-      #  run: docker build . --file Dockerfile --tag bike-reservation-system:$(date +%s)
+      - name: Build docker image
+        run: docker build . --file Dockerfile --tag bike-reservation-system:$(date +%s)
 
