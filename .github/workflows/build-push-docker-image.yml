@@ -16,10 +16,19 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew build -x test
 
-      - name: List files in build/libs
-        run: ls build/libs
+      - name: Run unit tests
+        run: ./gradlew unit
+
+      - name: Run narrow integration tests
+        run: ./gradlew narrowIntegrationTests
+
+      - name: Run component tests
+        run: ./gradlew componentTests
+
+      - name: Run contract provider verification tests
+        run: ./gradlew contractProviderTests
 
       - name: Log ing to Docker Hub
         uses: docker/login-action@v3

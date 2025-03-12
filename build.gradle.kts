@@ -35,3 +35,35 @@ dependencies {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+tasks.register<Test>("unitTests") {
+    useJUnitPlatform()
+    include("com/barbebroux/bikereservationsystem/unit/*")
+
+    classpath = sourceSets["test"].runtimeClasspath
+    testClassesDirs = sourceSets["test"].output.classesDirs
+}
+
+tasks.register<Test>("narrowIntegrationTests") {
+    useJUnitPlatform()
+    include("com/barbebroux/bikereservationsystem/narrowIT/*")
+
+    classpath = sourceSets["test"].runtimeClasspath
+    testClassesDirs = sourceSets["test"].output.classesDirs
+}
+
+tasks.register<Test>("componentTests") {
+    useJUnitPlatform()
+    include("com/barbebroux/bikereservationsystem/component/*")
+
+    classpath = sourceSets["test"].runtimeClasspath
+    testClassesDirs = sourceSets["test"].output.classesDirs
+}
+
+tasks.register<Test>("contractProviderTests") {
+    useJUnitPlatform()
+    include("com/barbebroux/bikereservationsystem/contractprovider/*")
+
+    classpath = sourceSets["test"].runtimeClasspath
+    testClassesDirs = sourceSets["test"].output.classesDirs
+}
