@@ -2,7 +2,7 @@
 
 ## Pipeline Dashboard
 
-![Build and Push Docker Image](https://github.com/RomainChamb/bike-reservation-system/actions/workflows/build-push-docker-image.yml/badge.svg)
+![Commit Stage](https://github.com/RomainChamb/bike-reservation-system/actions/workflows/commit-stage.yml/badge.svg)
 
 ## Informations
 
