@@ -92,5 +92,13 @@ Github Action
 ## Docker Registry
 [Docker Hub](https://hub.docker.com/repository/docker/barbebroux/bike-reservation-system/general)
 
+## Environnement
+UAT Environement : N/A Local only
+
+Production Environment : N/A Local only
+
+## System tests
+All system-level tests for this project are located in the TBD.
+
 
 
